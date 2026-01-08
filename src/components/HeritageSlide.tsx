@@ -147,7 +147,7 @@ const HeritageSlide: React.FC = () => {
                <div className="relative group">
                   <div className="absolute -top-10 -left-4 text-8xl font-serif text-warmYellow opacity-20 transform -translate-x-2 group-hover:translate-x-0 transition-transform duration-700">“</div>
                   <blockquote className="relative z-10 font-serif text-2xl md:text-3xl leading-snug text-white/95 mb-8">
-                    "Khyati possesses a unique blend of expertise in diet and food—a rare combination. She is detailed, meticulous, and <span className="text-warmYellow/90 italic">highly attuned</span> to the audience she serves."
+                    "Khyati possesses a unique blend of expertise in diet and food a rare combination. She is detailed, meticulous, and <span className="text-warmYellow/90 italic">highly attuned</span> to the audience she serves."
                   </blockquote>
                   <div className="flex items-center gap-4 pl-2 border-l-2 border-warmYellow/50">
                      <div>
@@ -173,7 +173,7 @@ const HeritageSlide: React.FC = () => {
             </div>
             
             {/* Logos/Credibility */}
-            <div className="mt-20 pt-10 border-t border-white/5 grid grid-cols-3 gap-8 text-center">
+            {/* <div className="mt-20 pt-10 border-t border-white/5 grid grid-cols-3 gap-8 text-center">
                <div className="flex flex-col items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300">
                    <span className="text-[10px] uppercase tracking-widest text-white/40 mb-2">Vouched By</span>
                    <span className="font-serif text-xl md:text-2xl text-white">Lilavati Hospital</span>
@@ -186,7 +186,7 @@ const HeritageSlide: React.FC = () => {
                    <span className="text-[10px] uppercase tracking-widest text-white/40 mb-2">Awarded By</span>
                    <span className="font-serif text-xl md:text-2xl text-white">Radio City</span>
                </div>
-            </div>
+            </div> */}
 
          </div>
       </motion.div>
