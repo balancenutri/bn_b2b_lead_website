@@ -458,7 +458,7 @@ const StrategySlide: React.FC = () => {
           <div className="relative z-10">
             <button
               onClick={() => setSelectedDomain(bnShopData)}
-              className="bg-warmYellow hover:bg-warmYellow/90 text-teal-deep font-bold py-4 px-8 rounded-full transition-all shadow-[0_0_20px_rgba(255,204,0,0.3)] hover:shadow-[0_0_30px_rgba(255,204,0,0.5)] hover:-translate-y-1"
+              className="bg-warmYellow hover:bg-warmYellow/90 text-teal-deep font-bold py-4 px-8 rounded-full transition-all shadow-[0_0_20px_rgba(255,204,0,0.3)] hover:shadow-[0_0_30px_rgba(255,204,0,0.5)] hover:-translate-y-1 cursor-pointer"
             >
               Partner With Us
             </button>
@@ -652,12 +652,12 @@ const StrategySlide: React.FC = () => {
                     alt="Khyati Rupani"
                     className="w-full h-full mb-4 object-cover transform group-hover:scale-105 transition-transform duration-700 rounded-lg"
                   />
-                  <div className="flex justify-center mb-8">
+                  <div className="flex justify-center mb-16 mt-4">
                     <button
                     onClick={() => window.open("https://balancenutrition.in/shop", "_blank")}
-                      className={`cursor-pointer  px-6 py-3 rounded-full text-base mx-auto font-sans font-medium transition-all duration-300 ease-out text-white bg-teal-base`}
+                      className={`cursor-pointer  px-6 py-3 rounded-full text-xl mx-auto font-sans font-medium transition-all duration-300 ease-out text-white bg-teal-base`}
                     >
-                      BN Shop
+                      Explore BN Shop
                     </button>
                   </div>
                   {/* SECTION 1: WHAT YOU GET */}
