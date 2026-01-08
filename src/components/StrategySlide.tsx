@@ -643,16 +643,16 @@ const StrategySlide: React.FC = () => {
                   transition={{ delay: 0.2 }}
                 >
                   <img
-                    src="/assets/scscds.png"
+                    src="/assets/products.png"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       target.src =
                         "https://ui-avatars.com/api/?name=Khyati+Rupani&background=00B6C1&color=fff&size=256";
                     }}
                     alt="Khyati Rupani"
-                    className="w-full h-full mb-4 object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full mb-4 object-cover transform group-hover:scale-105 transition-transform duration-700 rounded-lg"
                   />
-                  <div className="flex justify-center mb-4">
+                  <div className="flex justify-center mb-8">
                     <button
                     onClick={() => window.open("https://balancenutrition.in/shop", "_blank")}
                       className={`cursor-pointer  px-6 py-3 rounded-full text-base mx-auto font-sans font-medium transition-all duration-300 ease-out text-white bg-teal-base`}
