@@ -140,10 +140,10 @@ const StatCard = ({
       boxShadow: "0 25px 50px -12px rgba(0, 182, 193, 0.15)",
     }}
     className={`
-      relative overflow-hidden rounded-[2rem] p-6 flex flex-col items-center justify-center text-center group transition-all duration-300
+      relative overflow-hidden rounded-4xl p-6 flex flex-col items-center justify-center text-center group transition-all duration-300
       ${
         highlight
-          ? "bg-teal-deep text-cream shadow-xl col-span-2 md:col-span-1 aspect-[2/1] md:aspect-auto"
+          ? "bg-teal-deep text-cream shadow-xl col-span-2 md:col-span-1 aspect-2/1 md:aspect-auto"
           : "bg-white/80 backdrop-blur-md border border-teal-deep/5 shadow-sm aspect-square"
       }
     `}
@@ -229,7 +229,7 @@ const TimelineItem = ({
     transition={{ duration: 0.5, delay: index * 0.1 }}
     className="relative pl-8 pb-12 border-l-2 border-teal-base/20 last:border-0 last:pb-0 group"
   >
-    <div className="absolute left-[-7px] top-1.5 w-3.5 h-3.5 rounded-full bg-teal-base ring-4 ring-cream group-hover:ring-teal-base/20 transition-all duration-300" />
+    <div className="absolute -left-1.75 top-1.5 w-3.5 h-3.5 rounded-full bg-teal-base ring-4 ring-cream group-hover:ring-teal-base/20 transition-all duration-300" />
     <span className="text-sm font-bold text-teal-base font-sans tracking-wide block mb-1">
       {year}
     </span>
@@ -253,11 +253,11 @@ const ConceptSlide: React.FC = () => {
       {/* Background Parallax Elements */}
       <motion.div
         style={{ y: yParallax }}
-        className="fixed top-20 right-[-10%] w-[500px] h-[500px] bg-teal-base/5 rounded-full blur-[100px] -z-10"
+        className="fixed top-20 right-[-10%] w-125 h-125 bg-teal-base/5 rounded-full blur-[100px] -z-10"
       />
       <motion.div
         style={{ y: useTransform(scrollYProgress, [0, 1], [0, 150]) }}
-        className="fixed bottom-0 left-[-10%] w-[400px] h-[400px] bg-warmYellow/5 rounded-full blur-[80px] -z-10"
+        className="fixed bottom-0 left-[-10%] w-100 h-100 bg-warmYellow/5 rounded-full blur-[80px] -z-10"
       />
 
       <motion.div
@@ -456,7 +456,7 @@ const ConceptSlide: React.FC = () => {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border-[10px] border-white transform lg:rotate-3 hover:rotate-0 transition-transform duration-700 ease-out"
+              className="relative aspect-4/5 rounded-[3rem] overflow-hidden shadow-2xl border-10 border-white transform lg:rotate-3 hover:rotate-0 transition-transform duration-700 ease-out"
             >
               <video
                 autoPlay
@@ -472,7 +472,7 @@ const ConceptSlide: React.FC = () => {
                 />
                 Your browser does not support the video tag.
               </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-teal-deep/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-teal-deep/80 via-transparent to-transparent" />
               <div className="absolute bottom-10 left-10 text-white max-w-xs">
                 <div className="text-xs font-bold tracking-widest uppercase opacity-90 mb-3 border-l-2 border-warmYellow pl-3">
                   The Vision
@@ -490,9 +490,9 @@ const ConceptSlide: React.FC = () => {
         {/* Growth Story - Horizontal/Vertical */}
         <div className="mb-12">
           <h3 className="text-teal-base font-sans font-bold tracking-widest text-xs uppercase mb-10 flex items-center justify-center">
-            <span className="w-12 h-[2px] bg-teal-base mr-3"></span>A Decade of
+            <span className="w-12 h-0.5 bg-teal-base mr-3"></span>A Decade of
             Growth
-            <span className="w-12 h-[2px] bg-teal-base ml-3"></span>
+            <span className="w-12 h-0.5 bg-teal-base ml-3"></span>
           </h3>
 
           <div className="bg-white/60 backdrop-blur-md p-8 md:p-12 rounded-[2.5rem] border border-white shadow-sm max-w-4xl mx-auto">

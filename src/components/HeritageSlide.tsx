@@ -42,9 +42,9 @@ const HeritageSlide: React.FC = () => {
       {/* FOUNDERS SECTION */}
       <div className="mb-24">
          <h3 className="text-teal-base font-sans font-bold tracking-widest text-xs uppercase mb-8 text-center flex items-center justify-center">
-            <span className="w-8 h-[2px] bg-teal-base mr-3"></span>
+            <span className="w-8 h-0.5 bg-teal-base mr-3"></span>
             The Leadership
-            <span className="w-8 h-[2px] bg-teal-base ml-3"></span>
+            <span className="w-8 h-0.5 bg-teal-base ml-3"></span>
          </h3>
          
          <div className="grid md:grid-cols-2 gap-8">
@@ -58,7 +58,7 @@ const HeritageSlide: React.FC = () => {
             >
                <div className="flex flex-row items-start gap-6 mb-6">
                   {/* Photo Holder: Visible but controlled size */}
-                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-2xl overflow-hidden border border-teal-base/20 group-hover:border-teal-base transition-colors flex-shrink-0 shadow-sm relative bg-teal-deep/5">
+                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-2xl overflow-hidden border border-teal-base/20 group-hover:border-teal-base transition-colors shrink-0 shadow-sm relative bg-teal-deep/5">
                      <img 
                        src="/assets/vishal.jpg" 
                        onError={(e) => {
@@ -93,7 +93,7 @@ const HeritageSlide: React.FC = () => {
             >
                <div className="flex flex-row items-start gap-6 mb-6">
                   {/* Photo Holder */}
-                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-2xl overflow-hidden border border-teal-base/20 group-hover:border-teal-base transition-colors flex-shrink-0 shadow-sm relative bg-teal-base/5">
+                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-2xl overflow-hidden border border-teal-base/20 group-hover:border-teal-base transition-colors shrink-0 shadow-sm relative bg-teal-base/5">
                      <img 
                        src="/assets/khyati_picture.jpg" 
                        onError={(e) => {
@@ -141,7 +141,7 @@ const HeritageSlide: React.FC = () => {
 
             <div className="grid md:grid-cols-2 gap-16 relative">
                {/* Vertical Divider for Desktop */}
-               <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
+               <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-linear-to-b from-transparent via-white/10 to-transparent"></div>
 
                {/* Testimonial 1 - Nirmal Jain */}
                <div className="relative group">

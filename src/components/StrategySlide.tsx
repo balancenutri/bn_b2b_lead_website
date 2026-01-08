@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useSpring, useInView } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 // import { analyzeEcosystem } from '../services/geminiService';
-import type { StrategyResponse, MetricData } from "../utils/libs";
+// import type { StrategyResponse } from "../utils/libs";
 
 // --- Types for this Slide ---
 interface DomainData {
@@ -152,232 +152,232 @@ const bnShopData: DomainData = {
 };
 
 // --- Data: Industry Domains ---
-const domains: DomainData[] = [
-  {
-    id: "hospitals",
-    title: "Hospitals & Clinics",
-    tag: "Healthcare Provider Solutions",
-    shortDesc:
-      "Integrate comprehensive nutrition counseling into your patient care pathway.",
-    features: [
-      "EMR/EHR integration ready",
-      "Trained dietitian network access",
-      "Patient outcome tracking",
-    ],
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-        />
-      </svg>
-    ),
-    detailContent: {
-      hero: "Clinical Excellence, Digitized.",
-      valueProp:
-        "Extend your continuum of care beyond the clinic walls. We provide the digital infrastructure to make nutrition a core pillar of your therapeutic strategy.",
-      capabilities: [
-        "Seamless HL7/FHIR integration with major EMR systems.",
-        "On-demand access to specialized renal, cardiac, and diabetic dietitians.",
-        "Real-time patient adherence monitoring dashboard.",
-        "Post-discharge nutrition support protocols.",
-      ],
-      benefit:
-        "Reduce readmission rates by 18% through proactive nutritional management.",
-    },
-  },
-  {
-    id: "corporate",
-    title: "Corporate Wellness",
-    tag: "Enterprise Solutions",
-    shortDesc:
-      "Boost employee productivity and reduce healthcare costs with comprehensive wellness programs.",
-    features: [
-      "Customized wellness programs",
-      "Health assessment tools",
-      "Group nutrition sessions",
-      "ROI and analytics dashboard",
-    ],
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-        />
-      </svg>
-    ),
-    detailContent: {
-      hero: "The High-Performance Workforce.",
-      valueProp:
-        "Healthier employees drive stronger businesses. Our data-driven wellness programs address the root causes of absenteeism and fatigue.",
-      capabilities: [
-        "Company-wide health challenges and gamification.",
-        "Confidential 1-on-1 video consultations for employees.",
-        "Canteen menu audits and restructuring.",
-        "Quarterly aggregate health reports for HR leadership.",
-      ],
-      benefit:
-        "Achieve a 4:1 ROI through reduced insurance premiums and higher engagement.",
-    },
-  },
-  {
-    id: "education",
-    title: "Schools & Universities",
-    tag: "Educational Institutions",
-    shortDesc:
-      "Develop healthy eating habits and food education programs for students and faculty.",
-    features: [
-      "Age-appropriate nutrition education",
-      "Cafeteria menu consultation",
-      "Parent engagement programs",
-      "Growth monitoring tools",
-    ],
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-        />
-      </svg>
-    ),
-    detailContent: {
-      hero: "Building Foundations for Life.",
-      valueProp:
-        "Empowering the next generation with the knowledge to make smarter food choices. We turn the cafeteria into a classroom.",
-      capabilities: [
-        "Curriculum-aligned nutrition workshops.",
-        "Smart-swap menu engineering for campus dining.",
-        "Athlete-specific performance nutrition plans.",
-        "Digital food literacy content for parents.",
-      ],
-      benefit:
-        "Foster a campus culture of health that attracts prospective families.",
-    },
-  },
-  {
-    id: "pharma",
-    title: "Pharma & Healthcare",
-    tag: "Pharma Partnerships",
-    shortDesc:
-      "Enhance your therapeutic offerings with complementary nutrition support programs.",
-    features: [
-      "Therapy-specific nutrition protocols",
-      "Clinical trial nutrition support",
-      "Patient compliance programs",
-      "Co-branded health content",
-    ],
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-        />
-      </svg>
-    ),
-    detailContent: {
-      hero: "Beyond the Pill.",
-      valueProp:
-        "Drugs work better when the body is nourished. Partner with us to create holistic treatment plans that improve drug efficacy and patient quality of life.",
-      capabilities: [
-        "Gut-microbiome optimization protocols.",
-        "Companion apps for specific drug therapies.",
-        "Nutrient-drug interaction safety checks.",
-        "Real-world evidence data collection.",
-      ],
-      benefit:
-        "Differentiate your therapeutic portfolio with a 'Beyond the Pill' value add.",
-    },
-  },
-];
+// const domains: DomainData[] = [
+//   {
+//     id: "hospitals",
+//     title: "Hospitals & Clinics",
+//     tag: "Healthcare Provider Solutions",
+//     shortDesc:
+//       "Integrate comprehensive nutrition counseling into your patient care pathway.",
+//     features: [
+//       "EMR/EHR integration ready",
+//       "Trained dietitian network access",
+//       "Patient outcome tracking",
+//     ],
+//     icon: (
+//       <svg
+//         className="w-6 h-6"
+//         fill="none"
+//         viewBox="0 0 24 24"
+//         stroke="currentColor"
+//       >
+//         <path
+//           strokeLinecap="round"
+//           strokeLinejoin="round"
+//           strokeWidth={1.5}
+//           d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+//         />
+//       </svg>
+//     ),
+//     detailContent: {
+//       hero: "Clinical Excellence, Digitized.",
+//       valueProp:
+//         "Extend your continuum of care beyond the clinic walls. We provide the digital infrastructure to make nutrition a core pillar of your therapeutic strategy.",
+//       capabilities: [
+//         "Seamless HL7/FHIR integration with major EMR systems.",
+//         "On-demand access to specialized renal, cardiac, and diabetic dietitians.",
+//         "Real-time patient adherence monitoring dashboard.",
+//         "Post-discharge nutrition support protocols.",
+//       ],
+//       benefit:
+//         "Reduce readmission rates by 18% through proactive nutritional management.",
+//     },
+//   },
+//   {
+//     id: "corporate",
+//     title: "Corporate Wellness",
+//     tag: "Enterprise Solutions",
+//     shortDesc:
+//       "Boost employee productivity and reduce healthcare costs with comprehensive wellness programs.",
+//     features: [
+//       "Customized wellness programs",
+//       "Health assessment tools",
+//       "Group nutrition sessions",
+//       "ROI and analytics dashboard",
+//     ],
+//     icon: (
+//       <svg
+//         className="w-6 h-6"
+//         fill="none"
+//         viewBox="0 0 24 24"
+//         stroke="currentColor"
+//       >
+//         <path
+//           strokeLinecap="round"
+//           strokeLinejoin="round"
+//           strokeWidth={1.5}
+//           d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+//         />
+//       </svg>
+//     ),
+//     detailContent: {
+//       hero: "The High-Performance Workforce.",
+//       valueProp:
+//         "Healthier employees drive stronger businesses. Our data-driven wellness programs address the root causes of absenteeism and fatigue.",
+//       capabilities: [
+//         "Company-wide health challenges and gamification.",
+//         "Confidential 1-on-1 video consultations for employees.",
+//         "Canteen menu audits and restructuring.",
+//         "Quarterly aggregate health reports for HR leadership.",
+//       ],
+//       benefit:
+//         "Achieve a 4:1 ROI through reduced insurance premiums and higher engagement.",
+//     },
+//   },
+//   {
+//     id: "education",
+//     title: "Schools & Universities",
+//     tag: "Educational Institutions",
+//     shortDesc:
+//       "Develop healthy eating habits and food education programs for students and faculty.",
+//     features: [
+//       "Age-appropriate nutrition education",
+//       "Cafeteria menu consultation",
+//       "Parent engagement programs",
+//       "Growth monitoring tools",
+//     ],
+//     icon: (
+//       <svg
+//         className="w-6 h-6"
+//         fill="none"
+//         viewBox="0 0 24 24"
+//         stroke="currentColor"
+//       >
+//         <path
+//           strokeLinecap="round"
+//           strokeLinejoin="round"
+//           strokeWidth={1.5}
+//           d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+//         />
+//       </svg>
+//     ),
+//     detailContent: {
+//       hero: "Building Foundations for Life.",
+//       valueProp:
+//         "Empowering the next generation with the knowledge to make smarter food choices. We turn the cafeteria into a classroom.",
+//       capabilities: [
+//         "Curriculum-aligned nutrition workshops.",
+//         "Smart-swap menu engineering for campus dining.",
+//         "Athlete-specific performance nutrition plans.",
+//         "Digital food literacy content for parents.",
+//       ],
+//       benefit:
+//         "Foster a campus culture of health that attracts prospective families.",
+//     },
+//   },
+//   {
+//     id: "pharma",
+//     title: "Pharma & Healthcare",
+//     tag: "Pharma Partnerships",
+//     shortDesc:
+//       "Enhance your therapeutic offerings with complementary nutrition support programs.",
+//     features: [
+//       "Therapy-specific nutrition protocols",
+//       "Clinical trial nutrition support",
+//       "Patient compliance programs",
+//       "Co-branded health content",
+//     ],
+//     icon: (
+//       <svg
+//         className="w-6 h-6"
+//         fill="none"
+//         viewBox="0 0 24 24"
+//         stroke="currentColor"
+//       >
+//         <path
+//           strokeLinecap="round"
+//           strokeLinejoin="round"
+//           strokeWidth={1.5}
+//           d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+//         />
+//       </svg>
+//     ),
+//     detailContent: {
+//       hero: "Beyond the Pill.",
+//       valueProp:
+//         "Drugs work better when the body is nourished. Partner with us to create holistic treatment plans that improve drug efficacy and patient quality of life.",
+//       capabilities: [
+//         "Gut-microbiome optimization protocols.",
+//         "Companion apps for specific drug therapies.",
+//         "Nutrient-drug interaction safety checks.",
+//         "Real-world evidence data collection.",
+//       ],
+//       benefit:
+//         "Differentiate your therapeutic portfolio with a 'Beyond the Pill' value add.",
+//     },
+//   },
+// ];
 
 // --- Local Counter Component for Strategy Slide ---
-const Counter = ({ value }: { value: string }) => {
-  const nodeRef = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(nodeRef, { once: true });
+// const Counter = ({ value }: { value: string }) => {
+//   const nodeRef = useRef<HTMLSpanElement>(null);
+//   const isInView = useInView(nodeRef, { once: true });
 
-  // Extract number and suffix
-  const numValue = parseFloat(value.replace(/[^0-9.]/g, "")) || 0;
-  const prefix = value.match(/^[£$€]/) ? value[0] : "";
-  const suffix = value.replace(/^[£$€]/, "").replace(/[0-9.]/g, "");
-  const decimalPlaces = value.includes(".")
-    ? value.split(".")[1].replace(/[^0-9]/g, "").length
-    : 0;
+//   // Extract number and suffix
+//   const numValue = parseFloat(value.replace(/[^0-9.]/g, "")) || 0;
+//   const prefix = value.match(/^[£$€]/) ? value[0] : "";
+//   const suffix = value.replace(/^[£$€]/, "").replace(/[0-9.]/g, "");
+//   const decimalPlaces = value.includes(".")
+//     ? value.split(".")[1].replace(/[^0-9]/g, "").length
+//     : 0;
 
-  const springValue = useSpring(0, { duration: 2000, bounce: 0 });
+//   const springValue = useSpring(0, { duration: 2000, bounce: 0 });
 
-  useEffect(() => {
-    if (isInView) {
-      springValue.set(numValue);
-    }
-  }, [isInView, numValue, springValue]);
+//   useEffect(() => {
+//     if (isInView) {
+//       springValue.set(numValue);
+//     }
+//   }, [isInView, numValue, springValue]);
 
-  const [displayValue, setDisplayValue] = useState("0");
+//   const [displayValue, setDisplayValue] = useState("0");
 
-  useEffect(() => {
-    return springValue.on("change", (latest) => {
-      setDisplayValue(latest.toFixed(decimalPlaces));
-    });
-  }, [springValue, decimalPlaces]);
+//   useEffect(() => {
+//     return springValue.on("change", (latest) => {
+//       setDisplayValue(latest.toFixed(decimalPlaces));
+//     });
+//   }, [springValue, decimalPlaces]);
 
-  return (
-    <span ref={nodeRef}>
-      {prefix}
-      {displayValue}
-      {suffix}
-    </span>
-  );
-};
+//   return (
+//     <span ref={nodeRef}>
+//       {prefix}
+//       {displayValue}
+//       {suffix}
+//     </span>
+//   );
+// };
 
 const StrategySlide: React.FC = () => {
-  const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<StrategyResponse | null>(null);
+  // const [input, setInput] = useState("");
+  // const [loading, setLoading] = useState(false);
+  // const [result, setResult] = useState<StrategyResponse | null>(null);
   const [selectedDomain, setSelectedDomain] = useState<DomainData | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim()) return;
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   if (!input.trim()) return;
 
-    setLoading(true);
-    setResult(null);
+  //   setLoading(true);
+  //   setResult(null);
 
-    // Minimum wait time for "Calculation" effect
-    const analysisPromise = analyzeEcosystem(input);
-    const delayPromise = new Promise((resolve) => setTimeout(resolve, 2000));
+  //   // Minimum wait time for "Calculation" effect
+  //   const analysisPromise = analyzeEcosystem(input);
+  //   const delayPromise = new Promise((resolve) => setTimeout(resolve, 2000));
 
-    const [analysis] = await Promise.all([analysisPromise, delayPromise]);
+  //   const [analysis] = await Promise.all([analysisPromise, delayPromise]);
 
-    setResult(analysis);
-    setLoading(false);
-  };
+  //   setResult(analysis);
+  //   setLoading(false);
+  // };
 
   return (
     <motion.div
@@ -388,8 +388,8 @@ const StrategySlide: React.FC = () => {
     >
       {/* Background Ambience */}
       <div className="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-teal-base/20 rounded-full blur-[120px] mix-blend-screen" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-warmYellow/10 rounded-full blur-[100px] mix-blend-screen" />
+        <div className="absolute top-[-20%] right-[-10%] w-150 h-150 bg-teal-base/20 rounded-full blur-[120px] mix-blend-screen" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-125 h-125 bg-warmYellow/10 rounded-full blur-[100px] mix-blend-screen" />
       </div>
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pt-20 pb-40 flex flex-col items-center">
@@ -421,12 +421,12 @@ const StrategySlide: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="w-full bg-teal-deep text-cream rounded-[2rem] p-8 md:p-12 border border-white/10 shadow-2xl mb-12 flex flex-col md:flex-row items-center gap-10 relative overflow-hidden"
+          className="w-full bg-teal-deep text-cream rounded-4xl p-8 md:p-12 border border-white/10 shadow-2xl mb-12 flex flex-col md:flex-row items-center gap-10 relative overflow-hidden"
         >
           {/* Background Decor */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-teal-base/20 rounded-full blur-[80px] pointer-events-none"></div>
 
-          <div className="w-20 h-20 bg-white/10 rounded-2xl flex items-center justify-center text-warmYellow shadow-lg flex-shrink-0 backdrop-blur-sm border border-white/5">
+          <div className="w-20 h-20 bg-white/10 rounded-2xl flex items-center justify-center text-warmYellow shadow-lg shrink-0 backdrop-blur-sm border border-white/5">
             {bnShopData.icon}
           </div>
 
@@ -594,7 +594,7 @@ const StrategySlide: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[110] bg-cream flex flex-col overflow-y-auto"
+            className="fixed inset-0 z-110 bg-cream flex flex-col overflow-y-auto"
           >
             {/* Close Button */}
             <button
@@ -663,9 +663,9 @@ const StrategySlide: React.FC = () => {
                   {/* SECTION 1: WHAT YOU GET */}
                   <div className="mb-24">
                     <h3 className="text-teal-base font-sans font-bold tracking-widest text-sm uppercase mb-10 text-center flex items-center justify-center">
-                      <span className="w-12 h-[1px] bg-teal-base mr-3"></span>
+                      <span className="w-12 h-px bg-teal-base mr-3"></span>
                       What Selected Partners Get
-                      <span className="w-12 h-[1px] bg-teal-base ml-3"></span>
+                      <span className="w-12 h-px bg-teal-base ml-3"></span>
                     </h3>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-6">
@@ -682,7 +682,7 @@ const StrategySlide: React.FC = () => {
                         return (
                           <div
                             key={i}
-                            className={`${colSpan} ${bgClass} rounded-[2rem] p-8 md:p-10 border border-teal-deep/5 hover:shadow-xl transition-all duration-300 flex flex-col justify-between`}
+                            className={`${colSpan} ${bgClass} rounded-4xl p-8 md:p-10 border border-teal-deep/5 hover:shadow-xl transition-all duration-300 flex flex-col justify-between`}
                           >
                             <div>
                               <h4
@@ -722,7 +722,7 @@ const StrategySlide: React.FC = () => {
                                     }`}
                                   >
                                     <span
-                                      className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
+                                      className={`w-2 h-2 rounded-full mt-2 shrink-0 ${
                                         isLead
                                           ? "bg-warmYellow"
                                           : "bg-teal-base"
@@ -766,7 +766,7 @@ const StrategySlide: React.FC = () => {
                           {bnShopDetails.checklist.requirements.map(
                             (req, i) => (
                               <div key={i} className="flex gap-6 group">
-                                <div className="w-10 h-10 rounded-full bg-teal-deep text-cream flex items-center justify-center font-serif font-bold text-lg flex-shrink-0 group-hover:scale-110 transition-transform">
+                                <div className="w-10 h-10 rounded-full bg-teal-deep text-cream flex items-center justify-center font-serif font-bold text-lg shrink-0 group-hover:scale-110 transition-transform">
                                   {i + 1}
                                 </div>
                                 <div>
@@ -914,7 +914,7 @@ const StrategySlide: React.FC = () => {
                         for {selectedDomain.title}.
                       </p>
                     </div>
-                    <div className="bg-white p-8 rounded-[2rem] border border-teal-deep/5 shadow-lg">
+                    <div className="bg-white p-8 rounded-4xl border border-teal-deep/5 shadow-lg">
                       <h3 className="font-sans font-bold text-sm uppercase tracking-widest text-teal-base mb-6">
                         Key Capabilities
                       </h3>
@@ -925,7 +925,7 @@ const StrategySlide: React.FC = () => {
                               key={i}
                               className="flex items-start gap-3 text-teal-deep"
                             >
-                              <span className="w-1.5 h-1.5 bg-warmYellow rounded-full mt-2 flex-shrink-0"></span>
+                              <span className="w-1.5 h-1.5 bg-warmYellow rounded-full mt-2 shrink-0"></span>
                               <span className="text-lg font-light">{cap}</span>
                             </li>
                           )
@@ -980,100 +980,100 @@ const StrategySlide: React.FC = () => {
 
 // --- Sub Components ---
 
-const EmptyCard = ({
-  title,
-  icon,
-  desc,
-  delay,
-}: {
-  title: string;
-  icon: React.ReactNode;
-  desc: string;
-  delay: number;
-}) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, scale: 0.95 }}
-    transition={{ delay, duration: 0.5 }}
-    className="bg-white/5 border border-white/5 rounded-[2rem] p-8 flex flex-col items-center text-center h-64 justify-center group hover:bg-white/10 transition-colors cursor-default"
-  >
-    <div className="text-white/20 mb-4 group-hover:text-warmYellow group-hover:scale-110 transition-all duration-300">
-      {icon}
-    </div>
-    <h3 className="font-sans font-bold text-xs uppercase tracking-widest text-white/50 mb-2">
-      {title}
-    </h3>
-    <p className="font-serif text-lg text-white/80">{desc}</p>
-  </motion.div>
-);
+// const EmptyCard = ({
+//   title,
+//   icon,
+//   desc,
+//   delay,
+// }: {
+//   title: string;
+//   icon: React.ReactNode;
+//   desc: string;
+//   delay: number;
+// }) => (
+//   <motion.div
+//     initial={{ opacity: 0, y: 20 }}
+//     animate={{ opacity: 1, y: 0 }}
+//     exit={{ opacity: 0, scale: 0.95 }}
+//     transition={{ delay, duration: 0.5 }}
+//     className="bg-white/5 border border-white/5 rounded-[2rem] p-8 flex flex-col items-center text-center h-64 justify-center group hover:bg-white/10 transition-colors cursor-default"
+//   >
+//     <div className="text-white/20 mb-4 group-hover:text-warmYellow group-hover:scale-110 transition-all duration-300">
+//       {icon}
+//     </div>
+//     <h3 className="font-sans font-bold text-xs uppercase tracking-widest text-white/50 mb-2">
+//       {title}
+//     </h3>
+//     <p className="font-serif text-lg text-white/80">{desc}</p>
+//   </motion.div>
+// );
 
-const MetricCard = ({
-  data,
-  icon,
-  index,
-  highlight = false,
-}: {
-  data: MetricData;
-  icon: React.ReactNode;
-  index: number;
-  highlight?: boolean;
-}) => (
-  <motion.div
-    initial={{ opacity: 0, y: 30, scale: 0.9 }}
-    animate={{ opacity: 1, y: 0, scale: 1 }}
-    transition={{ delay: index * 0.15, type: "spring", stiffness: 100 }}
-    className={`
-      relative overflow-hidden rounded-[2rem] p-8 flex flex-col h-full min-h-[16rem] justify-between text-left
-      ${
-        highlight
-          ? "bg-warmYellow text-teal-deep"
-          : "bg-white/10 text-white border border-white/10"
-      }
-    `}
-  >
-    {/* Header */}
-    <div className="flex justify-between items-start">
-      <div
-        className={`text-[10px] font-bold uppercase tracking-[0.2em] ${
-          highlight ? "text-teal-deep/60" : "text-white/40"
-        }`}
-      >
-        {data.label}
-      </div>
-      <div
-        className={`p-2 rounded-full ${
-          highlight
-            ? "bg-teal-deep/10 text-teal-deep"
-            : "bg-white/10 text-white"
-        }`}
-      >
-        {icon}
-      </div>
-    </div>
+// const MetricCard = ({
+//   data,
+//   icon,
+//   index,
+//   highlight = false,
+// }: {
+//   data: MetricData;
+//   icon: React.ReactNode;
+//   index: number;
+//   highlight?: boolean;
+// }) => (
+//   <motion.div
+//     initial={{ opacity: 0, y: 30, scale: 0.9 }}
+//     animate={{ opacity: 1, y: 0, scale: 1 }}
+//     transition={{ delay: index * 0.15, type: "spring", stiffness: 100 }}
+//     className={`
+//       relative overflow-hidden rounded-4xl p-8 flex flex-col h-full min-h-64 justify-between text-left
+//       ${
+//         highlight
+//           ? "bg-warmYellow text-teal-deep"
+//           : "bg-white/10 text-white border border-white/10"
+//       }
+//     `}
+//   >
+//     {/* Header */}
+//     <div className="flex justify-between items-start">
+//       <div
+//         className={`text-[10px] font-bold uppercase tracking-[0.2em] ${
+//           highlight ? "text-teal-deep/60" : "text-white/40"
+//         }`}
+//       >
+//         {data.label}
+//       </div>
+//       <div
+//         className={`p-2 rounded-full ${
+//           highlight
+//             ? "bg-teal-deep/10 text-teal-deep"
+//             : "bg-white/10 text-white"
+//         }`}
+//       >
+//         {icon}
+//       </div>
+//     </div>
 
-    {/* Main Number */}
-    <div className="mt-4 mb-2">
-      <div
-        className={`font-sans font-bold text-5xl md:text-6xl tracking-tighter ${
-          highlight ? "text-teal-deep" : "text-teal-deep"
-        }`}
-      >
-        <Counter value={data.value} />
-      </div>
-    </div>
+//     {/* Main Number */}
+//     <div className="mt-4 mb-2">
+//       <div
+//         className={`font-sans font-bold text-5xl md:text-6xl tracking-tighter ${
+//           highlight ? "text-teal-deep" : "text-teal-deep"
+//         }`}
+//       >
+//         <Counter value={data.value} />
+//       </div>
+//     </div>
 
-    {/* Footer Context */}
-    <div
-      className={`text-sm leading-snug border-t pt-4 mt-auto ${
-        highlight
-          ? "border-teal-deep/10 text-teal-deep/80"
-          : "border-white/10 text-white/60"
-      }`}
-    >
-      {data.context}
-    </div>
-  </motion.div>
-);
+//     {/* Footer Context */}
+//     <div
+//       className={`text-sm leading-snug border-t pt-4 mt-auto ${
+//         highlight
+//           ? "border-teal-deep/10 text-teal-deep/80"
+//           : "border-white/10 text-white/60"
+//       }`}
+//     >
+//       {data.context}
+//     </div>
+//   </motion.div>
+// );
 
 export default StrategySlide;
