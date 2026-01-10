@@ -1,53 +1,8 @@
-import React, { useRef, useEffect, useState } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  useInView,
-} from "framer-motion";
-
-// --- Animated Counter Component ---
-const Counter = ({
-  value,
-  duration = 2,
-}: {
-  value: string;
-  duration?: number;
-}) => {
-  const nodeRef = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(nodeRef, { once: true, margin: "-100px" });
-
-  // Extract number and suffix (e.g., "15.5M" -> 15.5 and "M")
-  const numValue = parseFloat(value.replace(/[^0-9.]/g, ""));
-  const suffix = value.replace(/[0-9.]/g, "");
-  const decimalPlaces = value.includes(".") ? value.split(".")[1].length : 0;
-
-  const springValue = useSpring(0, { duration: duration * 1000, bounce: 0 });
-
-  useEffect(() => {
-    if (isInView) {
-      springValue.set(numValue);
-    }
-  }, [isInView, numValue, springValue]);
-
-  const [displayValue, setDisplayValue] = useState("0");
-
-  useEffect(() => {
-    return springValue.on("change", (latest) => {
-      setDisplayValue(latest.toFixed(decimalPlaces));
-    });
-  }, [springValue, decimalPlaces]);
-
-  return (
-    <span ref={nodeRef} className="text-md">
-      {displayValue}
-      {suffix}
-    </span>
-  );
-};
-
-// --- Animated SVG Concepts ---
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Counter from "./common/Counter";
+import StatCard from "./cards/StatCard";
+import ConceptCard from "./cards/ConceptCard";
 
 const PreventionIcon = () => (
   <svg viewBox="0 0 100 100" className="w-16 h-16 text-teal-base">
@@ -115,102 +70,6 @@ const SimplicityIcon = () => (
   </svg>
 );
 
-// --- Components ---
-
-const StatCard = ({
-  number,
-  label,
-  icon,
-  delay,
-  highlight = false,
-}: {
-  number: string;
-  label: string;
-  icon: React.ReactNode;
-  delay: number;
-  highlight?: boolean;
-}) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6, delay }}
-    whileHover={{
-      y: -5,
-      boxShadow: "0 25px 50px -12px rgba(0, 182, 193, 0.15)",
-    }}
-    className={`
-      relative overflow-hidden rounded-4xl p-6 flex flex-col items-center justify-center text-center group transition-all duration-300
-      ${
-        highlight
-          ? "bg-teal-deep text-cream shadow-xl col-span-2 md:col-span-1 aspect-2/1 md:aspect-auto"
-          : "bg-white/80 backdrop-blur-md border border-teal-deep/5 shadow-sm aspect-square"
-      }
-    `}
-  >
-    <div
-      className={`
-      mb-4 transform group-hover:scale-110 transition-transform duration-500
-      ${highlight ? "text-warmYellow" : "text-teal-base"}
-    `}
-    >
-      {icon}
-    </div>
-    <div
-      className={`
-      font-sans font-bold relative z-10 tracking-tighter leading-none mb-1
-      ${
-        highlight
-          ? "text-5xl md:text-6xl text-white"
-          : "text-4xl md:text-5xl text-teal-deep"
-      }
-    `}
-    >
-      <Counter value={number} />
-    </div>
-    <div
-      className={`
-      font-sans text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold mt-2 relative z-10
-      ${highlight ? "text-white/70" : "text-teal-deep/50"}
-    `}
-    >
-      {label}
-    </div>
-
-    {/* Decor */}
-    {highlight && (
-      <motion.div
-        className="absolute -right-4 -bottom-4 w-24 h-24 bg-teal-base/20 rounded-full blur-xl"
-        animate={{ scale: [1, 1.2, 1] }}
-        transition={{ duration: 4, repeat: Infinity }}
-      />
-    )}
-  </motion.div>
-);
-
-const ConceptCard = ({
-  title,
-  desc,
-  icon,
-}: {
-  title: string;
-  desc: string;
-  icon: React.ReactNode;
-}) => (
-  <motion.div
-    whileHover={{ scale: 1.02 }}
-    className="bg-white/60 backdrop-blur-sm border border-teal-deep/5 p-8 rounded-[2.5rem] flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all"
-  >
-    <div className="mb-6 p-4 bg-teal-base/5 rounded-full">{icon}</div>
-    <h3 className="font-serif text-2xl font-bold text-teal-deep mb-3">
-      {title}
-    </h3>
-    <p className="font-sans text-teal-deep/70 text-sm leading-relaxed max-w-xs">
-      {desc}
-    </p>
-  </motion.div>
-);
-
 const TimelineItem = ({
   year,
   title,
@@ -264,38 +123,34 @@ const ConceptSlide: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="flex flex-col px-6 pt-12 pb-32 max-w-6xl mx-auto"
+        className="flex flex-col px-6 pb-32 max-w-6xl mx-auto md:mt-6"
       >
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-6 md:mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-block px-4 py-2 bg-white/80 border border-teal-deep/10 rounded-full text-xs tracking-[0.25em] font-bold text-teal-deep mb-6 shadow-sm uppercase backdrop-blur-md">
-              Global Impact
-            </span>
             {/* Logo Section */}
-            <div className="flex justify-center mb-8">
+            <div className="flex justify-center">
               <img
                 src="/assets/bn_logo.png"
                 alt="Balance Nutrition"
-                className="h-16 w-auto object-contain"
-                //  onError={(e) => {
-                //    e.currentTarget.style.display = 'none';
-                //    const fallback = document.getElementById('logo-fallback-text');
-                //    if (fallback) fallback.style.display = 'block';
-                //  }}
+                className="h-24 w-auto object-contain"
               />
-
-              <h1
-                id="logo-fallback-text"
-                className="hidden text-5xl md:text-7xl font-serif text-teal-deep leading-[1.05]"
-              >
-                Balance Nutrition
-              </h1>
             </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+            // className="text-center"
+          >
+            <p className="font-serif italic text-teal-deep leading-relaxed lg:text-xl ">
+              "Making healthcare easy, engaging, and accessible for all."
+            </p>
           </motion.div>
         </div>
 
@@ -530,17 +385,6 @@ const ConceptSlide: React.FC = () => {
         </div>
 
         {/* Footer Quote */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="mt-20 text-center p-12 relative"
-        >
-          <p className="font-serif italic text-teal-deep text-3xl md:text-4xl leading-relaxed">
-            "Making healthcare easy, engaging, and accessible for all."
-          </p>
-        </motion.div>
       </motion.div>
     </div>
   );
