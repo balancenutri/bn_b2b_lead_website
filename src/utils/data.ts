@@ -131,7 +131,7 @@ export const clinicsDetails = {
       points: [
         "Lifestyle education via use-case content",
         "Habit-building nudges & reminders",
-        "Credibility-first communication—no gimmicks",
+        "Credibility-first communication",
       ],
     },
     {
@@ -161,15 +161,15 @@ export const clinicsDetails = {
     },
   ],
   checklist: {
-    who: "For doctors, clinics, and hospitals who believe in preventive & lifestyle-driven care, want better patient outcomes beyond prescriptions, and seek patient engagement without operational complexity.",
+    who: "For doctors and clinics who believe in preventive & lifestyle-driven care, want better patient outcomes beyond prescriptions, and seek patient engagement without operational complexity.",
     requirements: [
       {
         title: "Clinical Alignment",
-        desc: "Openness to integrating nutrition & lifestyle as a formal extension of treatment, guided by BN clinical standards.",
+        desc: "Openness to integrating nutrition & lifestyle as a part of treatment, guided by BN clinical standards.",
       },
       {
         title: "Commercial Structure",
-        desc: "Revenue-sharing model on enrollments. Structured case-by-case based on specialty. Option to waive earnings and redirect to social impact.",
+        desc: "Revenue-sharing model on enrollments. Structured case-by-case based on specialty.",
       },
       {
         title: "Zero Capital Requirement",
@@ -195,7 +195,7 @@ export const clinicsDetails = {
     },
   },
   whatsapp: {
-    number: "919462623375",
+    number: "917021963454",
     text: "Hi, I'm interested in a Partnership",
   },
 };

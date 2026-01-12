@@ -834,7 +834,7 @@ export default StrategySlide;
 //     requirements: [
 //       {
 //         title: "Clinical Alignment",
-//         desc: "Openness to integrating nutrition & lifestyle as a formal extension of treatment, guided by BN clinical standards.",
+//         desc: "Openness to integrating nutrition & lifestyle as a part of treatment, guided by BN clinical standards.",
 //       },
 //       {
 //         title: "Commercial Structure",
