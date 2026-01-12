@@ -195,7 +195,7 @@ const ConceptSlide: React.FC = () => {
 
                 <div className="relative z-10 mt-8 pt-8 border-t border-white/10">
                   <p className="text-cream/80 text-lg font-light leading-relaxed max-w-md">
-                    Our AI-driven ecosystem ensures continuous, proactive health
+                    BN ecosystem ensures continuous, proactive health
                     management at unprecedented scale.
                   </p>
                 </div>
