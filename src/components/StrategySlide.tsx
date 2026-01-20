@@ -314,12 +314,9 @@ const StrategySlide: React.FC = () => {
                                 </button>
                                 <button
                                   onClick={() =>
-                                    window.open(
-                                      deckPdfUrl,
-                                      "_blank",
-                                    )
+                                    window.open(deckPdfUrl, "_blank")
                                   }
-                                  className={`cursor-pointer  px-6 py-3 rounded-full text-xl mx-auto font-sans font-semibold transition-all duration-300 ease-out text-[#657a52] bg-[#f7cb44]`}
+                                  className={`cursor-pointer  px-6 py-3 rounded-full text-xl mx-auto font-sans font-medium transition-all duration-300 ease-out text-teal-deep bg-warmYellow`}
                                 >
                                   Explore Growth Ecosystem
                                 </button>
