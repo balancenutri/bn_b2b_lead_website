@@ -1,7 +1,11 @@
+/* eslint-disable @typescript-eslint/no-empty-object-type */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/set-state-in-effect */
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { bnShopDetails, clinicsDetails } from "../utils/data";
 import Accordion from "./common/Accordion";
+import { deckPdfUrl } from "../constants";
 
 // --- Types for this Slide ---
 interface DomainData {
@@ -311,7 +315,7 @@ const StrategySlide: React.FC = () => {
                                 <button
                                   onClick={() =>
                                     window.open(
-                                      "https://res.cloudinary.com/dg4wzx8c8/image/upload/v1768890745/app_images/uk4kdon8dwqmjvoyv7tk.pdf",
+                                      deckPdfUrl,
                                       "_blank",
                                     )
                                   }
