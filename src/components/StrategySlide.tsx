@@ -296,23 +296,36 @@ const StrategySlide: React.FC = () => {
                               className="w-full h-full mb-4 object-cover transform group-hover:scale-105 transition-transform duration-700 rounded-lg"
                             />
                             <div className="flex justify-center mb-4">
-                              <button
-                                onClick={() =>
-                                  window.open(
-                                    "https://balancenutrition.in/shop",
-                                    "_blank",
-                                  )
-                                }
-                                className={`cursor-pointer  px-6 py-3 rounded-full text-xl mx-auto font-sans font-medium transition-all duration-300 ease-out text-white bg-teal-base`}
-                              >
-                                Explore BN Shop
-                              </button>
+                              <div className="flex gap-x-8">
+                                <button
+                                  onClick={() =>
+                                    window.open(
+                                      "https://balancenutrition.in/shop",
+                                      "_blank",
+                                    )
+                                  }
+                                  className={`cursor-pointer  px-6 py-3 rounded-full text-xl mx-auto font-sans font-medium transition-all duration-300 ease-out text-white bg-teal-base`}
+                                >
+                                  Explore BN Shop
+                                </button>
+                                <button
+                                  onClick={() =>
+                                    window.open(
+                                      "https://res.cloudinary.com/dg4wzx8c8/image/upload/v1768890745/app_images/uk4kdon8dwqmjvoyv7tk.pdf",
+                                      "_blank",
+                                    )
+                                  }
+                                  className={`cursor-pointer  px-6 py-3 rounded-full text-xl mx-auto font-sans font-medium transition-all duration-300 ease-out text-[#657a52] bg-[#f7cb44]`}
+                                >
+                                  Explore Growth Ecosystem
+                                </button>
+                              </div>
                             </div>
                           </motion.div>
                         )}
 
                         {/* SECTIONS WRAPPER */}
-                        <div className="max-w-6xl mx-auto mb-16">
+                        <div className="max-w-6xl my-16 mx-auto mb-16">
                           {/* 1. STRATEGIC BENEFITS - CAROUSEL */}
                           <div className="mb-16">
                             <h3 className="font-serif text-3xl md:text-3xl text-teal-deep mb-8 px-2">
