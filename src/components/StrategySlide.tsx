@@ -328,7 +328,7 @@ const StrategySlide: React.FC = () => {
                                   }
                                   className={`cursor-pointer  px-6 py-3 rounded-full text-xl mx-auto font-sans font-medium transition-all duration-300 ease-out text-teal-deep bg-warmYellow`}
                                 >
-                                  Click to Explore
+                                  Click Here to View
                                 </button>
                               </div>
                             </div>
