@@ -312,13 +312,23 @@ const StrategySlide: React.FC = () => {
                                 >
                                   Explore BN Shop
                                 </button>
+                              </div>
+                            </div>
+
+                            <div className="flex bg-teal-deep items-center  p-8 mt-10 rounded-4xl justify-center mb-4">
+                              <div className=" flex flex-col items-center space-y-4 justify-center ">
+                                <h4
+                                  className={`font-serif  text-4xl md:text-5xl mb-6 font-medium`}
+                                >
+                                  A Complete Growth Ecosystem
+                                </h4>
                                 <button
                                   onClick={() =>
                                     window.open(deckPdfUrl, "_blank")
                                   }
                                   className={`cursor-pointer  px-6 py-3 rounded-full text-xl mx-auto font-sans font-medium transition-all duration-300 ease-out text-teal-deep bg-warmYellow`}
                                 >
-                                  Explore Growth Ecosystem
+                                  Click to Explore
                                 </button>
                               </div>
                             </div>
@@ -339,9 +349,10 @@ const StrategySlide: React.FC = () => {
                                 const colSpan = isLead
                                   ? "md:col-span-2 lg:col-span-6"
                                   : "md:col-span-1 lg:col-span-2";
-                                const bgClass = isLead
-                                  ? "bg-teal-deep text-cream"
-                                  : "bg-white text-teal-deep";
+                                const bgClass = "bg-white text-teal-deep";
+                                // const bgClass = isLead
+                                //   ? "bg-teal-deep text-cream"
+                                //   : "bg-white text-teal-deep";
 
                                 return (
                                   <div
@@ -360,11 +371,12 @@ const StrategySlide: React.FC = () => {
                                       </h4>
                                       {benefit.subtitle && (
                                         <p
-                                          className={`text-xs uppercase tracking-wider font-bold mb-4 ${
-                                            isLead
-                                              ? "text-warmYellow"
-                                              : "text-teal-base"
-                                          }`}
+                                          className={`text-xs uppercase tracking-wider text-teal-base font-bold mb-4 `}
+                                          // className={`text-xs uppercase tracking-wider font-bold mb-4 ${
+                                          //   isLead
+                                          //     ? "text-warmYellow"
+                                          //     : "text-teal-base"
+                                          // }`}
                                         >
                                           {benefit.subtitle}
                                         </p>
@@ -379,18 +391,17 @@ const StrategySlide: React.FC = () => {
                                         {benefit.points.map((pt, idx) => (
                                           <li
                                             key={idx}
-                                            className={`text-base leading-relaxed flex items-start gap-3 ${
-                                              isLead
-                                                ? "text-cream/90"
-                                                : "text-teal-deep/80"
-                                            }`}
+                                            className={`text-base leading-relaxed flex items-start gap-3 text-teal-deep/80
+                                              `}
+                                            // ${isLead? "text-cream/90": "text-teal-deep/80" }
                                           >
                                             <span
-                                              className={`w-2 h-2 rounded-full mt-2 shrink-0 ${
-                                                isLead
-                                                  ? "bg-warmYellow"
-                                                  : "bg-teal-base"
-                                              }`}
+                                              className={`w-2 h-2 rounded-full mt-2 shrink-0 bg-teal-base`}
+                                              // className={`w-2 h-2 rounded-full mt-2 shrink-0 ${
+                                              //   isLead
+                                              //     ? "bg-warmYellow"
+                                              //     : "bg-teal-base"
+                                              // }`}
                                             ></span>
                                             {pt}
                                           </li>

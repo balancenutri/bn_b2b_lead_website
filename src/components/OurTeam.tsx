@@ -78,7 +78,7 @@ const OurTeam = () => {
           {teamStats.map((item, index) => (
             <div
               key={index}
-              className="min-w-[240px] md:min-w-0 snap-center h-full"
+              className="min-w-60 md:min-w-0 snap-center h-full"
             >
               <TeamStat
                 count={item.count}

@@ -16,9 +16,9 @@ const KhaytiCard = () => {
             <img
               src="/assets/khyati_picture.jpg"
               onError={(e) => {
-                const target = e.target;
+                const target = e.target as HTMLImageElement;
                 target.src =
-                  "https://ui-avatars.com/api/?name=Khyati+Rupani&background=00B6C1&color=fff&size=256";
+                  "https://ui-avatars.com/api/?name=Khyati+Rupani&background=00B6C1&color=fff&size=256" ;
               }}
               alt="Khyati Rupani"
               className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"

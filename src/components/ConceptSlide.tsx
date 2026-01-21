@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/purity */
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Counter from "./common/Counter";
